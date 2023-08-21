@@ -18,6 +18,7 @@ pipeline {
         sh 'cd spring-boot-app && mvn clean package'
       }
     }
+    //use the below sonar approach if you want to use sonarcloud.io"
     stage ("Sonar Analysis") {
             environment {
                scannerHome = tool 'SonarQubeScanner'
@@ -30,6 +31,7 @@ pipeline {
                 echo '<--------------- Sonar Analysis stopped  --------------->'
             }   
         }    
+    //use the below sonar approach if you have the sonarqube standalone setup"
     /*stage('Static Code Analysis') {
       environment {
         SONAR_URL = "https://sonarcloud.io/"
