@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: lookatravi/end-end-cicd:26
+        image: lookatravi/end-end-cicd:replaceImageTag
         ports:
         - containerPort: 8080
