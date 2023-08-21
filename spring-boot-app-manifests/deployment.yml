@@ -5,7 +5,7 @@ metadata:
   labels:
     app: spring-boot-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: spring-boot-app
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: lookatravi/end-end-cicd:22
+        image: lookatravi/end-end-cicd:replaceImageTag
         ports:
         - containerPort: 8080
