@@ -18,7 +18,19 @@ pipeline {
         sh 'cd spring-boot-app && mvn clean package'
       }
     }
-    stage('Static Code Analysis') {
+    stage ("Sonar Analysis") {
+            environment {
+               scannerHome = tool 'sonarQubescanner'
+            }
+            steps {
+                echo '<--------------- Sonar Analysis started  --------------->'
+                withSonarQubeEnv('SonarServer') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }    
+                echo '<--------------- Sonar Analysis stopped  --------------->'
+            }   
+        }    
+    /*stage('Static Code Analysis') {
       environment {
         SONAR_URL = "https://sonarcloud.io/"
       }
@@ -28,6 +40,7 @@ pipeline {
         }
       }
     }
+*/
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "lookatravi/end-end-cicd:${BUILD_NUMBER}"
