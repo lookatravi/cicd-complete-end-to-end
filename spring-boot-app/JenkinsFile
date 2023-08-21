@@ -18,7 +18,7 @@ pipeline {
         sh 'cd spring-boot-app && mvn clean package'
       }
     }
-    //use the below sonar approach if you want to use sonarcloud.io"
+    //use the below sonar approach if you want to use sonarcloud.io."
     stage ("Sonar Analysis") {
             environment {
                scannerHome = tool 'SonarQubeScanner'
