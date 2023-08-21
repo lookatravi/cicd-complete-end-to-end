@@ -31,7 +31,7 @@ pipeline {
                 echo '<--------------- Sonar Analysis stopped  --------------->'
             }   
         }    
-    //use the below sonar approach if you have the sonarqube standalone setup"
+    //use the below sonar approach if you have the sonarqube standalone setup."
     /*stage('Static Code Analysis') {
       environment {
         SONAR_URL = "https://sonarcloud.io/"
